@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var section = $(this).parents(".conteudo-secao");
 
         if($(this).hasClass("filme-ativo")){
-            $(this).removeClass("filme-ativo");
+            $(".tagfilme").removeClass("filme-ativo");
             section.find(".card").css("display", "flex");
         }
         else{
@@ -31,10 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 var hasMatchingTag = false;
     
                 card.find(".tagfilme").each(function(){
+                    var buttonColor = $(this);
                     var tagFilme = $(this).text();
+
     
                     if(tagFilme.trim() === nomeTag.trim()){
                         hasMatchingTag = true;
+                        buttonColor.addClass("filme-ativo");
                     }
     
                     if(!hasMatchingTag){
